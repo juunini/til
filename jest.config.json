@@ -5,6 +5,7 @@
   "moduleFileExtensions": ["ts", "js", "tsx", "jsx"],
   "moduleNameMapper": {
     "^package.json": "<rootDir>/package.json",
+    "^jest.setup": "<rootDir>/jest.setup.ts",
     "^pages/(.*)": "<rootDir>/pages/$1"
   },
   "transformIgnorePatterns": ["./node_modules/"],
