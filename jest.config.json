@@ -1,0 +1,30 @@
+{
+  "setupFilesAfterEnv": [
+    "<rootDir>/jest.setup.ts"
+  ],
+  "moduleNameMapper": {
+    "\\.(scss|sass|css)$": "identity-obj-proxy",
+    "^package.json": "<rootDir>/package.json",
+    "^__tests__/jest.setup": "<rootDir>/__tests__/jest.setup.ts",
+    "^pages/(.*)": "<rootDir>/pages/$1"
+  },
+  "testMatch": ["<rootDir>/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "collectCoverageFrom": [
+    "**/*.{ts,tsx}"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/.next/",
+    "/__tests__/",
+    ".d.ts",
+    "_app.tsx"
+  ]
+}
