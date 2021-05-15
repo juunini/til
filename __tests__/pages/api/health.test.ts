@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import healthAPI from 'pages/api/health';
-import { createAPIMocks } from 'jest.setup';
+import { createAPIMocks } from '__tests__/jest.setup';
 
 describe('health api', () => {
   const { req, res } = createAPIMocks({ method: 'GET' });

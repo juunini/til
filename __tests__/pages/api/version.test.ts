@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import versionAPI from 'pages/api/version';
 import packageJson from 'package.json';
-import { createAPIMocks } from 'jest.setup';
+import { createAPIMocks } from '__tests__/jest.setup';
 
 describe('version api', () => {
   const { req, res } = createAPIMocks({ method: 'GET' });
