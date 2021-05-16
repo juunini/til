@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
+    "deploy": "touch out/.nojekyll && echo 'til.juunini.xyz' out/CNAME && git add /out && git commit -m 'Deploy contents' && git subtree push --prefix out origin gh-pages",
     "start": "next start",
     "test": "jest",
     "test:coverage": "jest --coverage",
