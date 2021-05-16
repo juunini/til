@@ -1,9 +1,13 @@
-name: CI
+name: BUILD
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [closed]
 
 jobs:
   build:
+    if: github.event.pull_request.merged
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,9 +26,11 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Coverage
-        run: yarn test:coverage
+      - name: Build
+        run: yarn build
+      
+      - name: Export
+        run: yarn export
 
-      - name: Lint
-        run: yarn lint
-        
+      - name: Create .nojekyll
+        run: touch out/.nojekyll
