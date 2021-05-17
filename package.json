@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "deploy": "yarn build && yarn export && touch out/.nojekyll && echo 'til.juunini.xyz' > out/CNAME && git add out/ && git commit -m 'Deploy contents' && git subtree push --prefix out origin gh-pages",
+    "deploy": "yarn build && yarn export && touch out/.nojekyll && echo 'til.juunini.xyz' > out/CNAME && git add out/ && git commit -m 'Deploy contents' && git subtree push --prefix out origin gh-pages && rm -rf out",
     "start": "next start",
     "test": "jest",
     "test:coverage": "jest --coverage",
