@@ -3,4 +3,5 @@ module.exports = {
     loader: 'imgix',
     path: '/',
   },
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://til.juunini.xyz' : '',
 };
