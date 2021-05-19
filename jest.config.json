@@ -1,4 +1,8 @@
 {
+  "setupFiles": [
+    "jest-plugin-context/setup"
+  ],
+  "setupTestFrameworkScriptFile": "given2/setup",
   "setupFilesAfterEnv": [
     "<rootDir>/jest.setup.ts"
   ],
@@ -6,7 +10,8 @@
     "\\.(scss|sass|css)$": "identity-obj-proxy",
     "^package.json": "<rootDir>/package.json",
     "^__tests__/jest.setup": "<rootDir>/__tests__/jest.setup.ts",
-    "^pages/(.*)": "<rootDir>/pages/$1"
+    "^pages/(.*)": "<rootDir>/pages/$1",
+    "^lib/(.*)": "<rootDir>/lib/$1"
   },
   "testMatch": ["<rootDir>/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"],
   "coverageThreshold": {
