@@ -1,9 +1,7 @@
 {
-  "setupFiles": [
-    "jest-plugin-context/setup"
-  ],
-  "setupTestFrameworkScriptFile": "given2/setup",
   "setupFilesAfterEnv": [
+    "jest-plugin-context/setup",
+    "given2/setup",
     "<rootDir>/jest.setup.ts"
   ],
   "moduleNameMapper": {
