@@ -2,12 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { TilNotFoundError } from './errors';
 
-const rootPath = __dirname.substring(0, __dirname.length - 4);
+const rootPath: string = __dirname.substring(0, __dirname.length - 4);
+const tilDirectory: string = 'til';
 
 function makePath(...paths: string[]): string {
   return path.resolve(
     rootPath,
-    'til',
+    tilDirectory,
     ...paths.filter((value: string): boolean => value !== undefined && value !== ''),
   );
 }
