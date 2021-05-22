@@ -25,9 +25,9 @@ describe('[year]', () => {
   });
 
   describe('getStaticProps', () => {
-    it('returns months what received year having', async () => {
-      given('paths', () => ({ params: { year: given.year } }));
+    given('paths', () => ({ params: { year: given.year } }));
 
+    it('returns months what received year having', async () => {
       const { props } = await getStaticProps(given.paths);
 
       expect(props.year).toBe(given.year);
