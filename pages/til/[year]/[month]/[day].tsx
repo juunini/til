@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import { dir, contents } from 'lib/til';
 
@@ -22,6 +23,10 @@ export default function Day({
 }: Props): JSX.Element {
   return (
     <>
+      <Head>
+        <title>{`juunini's til - ${year}/${month}/${day}`}</title>
+        <meta name="description" content={`juunini's til - ${year}/${month}/${day}`} />
+      </Head>
       {`${year} ${month} ${day}`}
       <br />
       {content}
