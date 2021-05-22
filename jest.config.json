@@ -28,6 +28,7 @@
     "/.next/",
     "/__tests__/",
     ".d.ts",
-    "_app.tsx"
+    "_app.tsx",
+    "lib/markdown.tsx"
   ]
 }

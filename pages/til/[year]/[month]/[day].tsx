@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
 import { dir, contents } from 'lib/til';
+import Markdown from 'lib/markdown';
 
 type Params = {
   params: {
@@ -27,9 +28,8 @@ export default function Day({
         <title>{`juunini's til - ${year}/${month}/${day}`}</title>
         <meta name="description" content={`juunini's til - ${year}/${month}/${day}`} />
       </Head>
-      {`${year} ${month} ${day}`}
-      <br />
-      {content}
+
+      <Markdown>{content}</Markdown>
     </>
   );
 }
