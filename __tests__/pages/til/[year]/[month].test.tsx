@@ -3,13 +3,13 @@ import given from 'given2';
 
 import Month, { getStaticPaths, getStaticProps } from 'pages/til/[year]/[month]';
 
-describe('[year]', () => {
+describe('[month]', () => {
   given('year', () => '2021');
   given('month', () => '5');
   given('day', () => '21');
 
-  describe('Year', () => {
-    it('renders months link', () => {
+  describe('Month', () => {
+    it('renders days link', () => {
       render(<Month year={given.year} month={given.month} days={[given.day]} />);
 
       screen.getByText(given.day);
