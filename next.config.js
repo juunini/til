@@ -1,3 +1,5 @@
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+
 module.exports = {
   images: {
     loader: 'imgix',
@@ -11,4 +13,9 @@ module.exports = {
     
     return config;
   },
+  plugins: [
+    new StaticSiteGeneratorPlugin({
+      crawl: true
+    })
+  ]
 };
