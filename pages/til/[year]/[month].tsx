@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 
-import { dir } from 'lib/til';
+import { dir, internalURI } from 'lib/til';
 
 type Params = {
   params: {
@@ -21,7 +21,7 @@ export default function Month({ year, month, days }: Props): JSX.Element {
     <>
       {
         days.map((day: string): JSX.Element => (
-          <Link key={day} href={`/til/${year}/${month}/${day}`}>{day}</Link>
+          <Link key={day} href={internalURI(year, month, day)}>{day}</Link>
         ))
       }
     </>

@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { dir } from 'lib/til';
+import { dir, internalURI } from 'lib/til';
 
 export default function Home({ years }: { years: string[] }) {
   return (
@@ -16,7 +16,7 @@ export default function Home({ years }: { years: string[] }) {
       <main>
         {
           years.map((year: string): JSX.Element => (
-            <Link href={`/til/${year}`} key={year}>{year}</Link>
+            <Link href={internalURI(year)} key={year}>{year}</Link>
           ))
         }
       </main>

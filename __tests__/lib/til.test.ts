@@ -1,12 +1,23 @@
 import given from 'given2';
 
 import {
+  internalURI,
   dir,
   contents,
 } from 'lib/til';
 import { TilNotFoundError } from 'lib/errors';
 
 describe('til', () => {
+  describe('internalURI', () => {
+    given('year', () => '2021');
+    given('month', () => '5');
+    given('day', () => '21');
+
+    it('returns til internalURI path', () => {
+      expect(internalURI(given.year, given.month, given.day)).toBe(`/til/${given.year}/${given.month}/${given.day}`);
+    });
+  });
+
   describe('dir', () => {
     given('dir', () => dir(
       given.year && given.year.toString(),

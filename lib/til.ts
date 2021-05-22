@@ -13,6 +13,10 @@ function makePath(...paths: string[]): string {
   );
 }
 
+export function internalURI(...paths: string[]): string {
+  return `/${tilDirectory}/${paths.join('/')}`;
+}
+
 export function dir(...paths: string[]): string[] {
   return fs.readdirSync(
     makePath(...paths),
