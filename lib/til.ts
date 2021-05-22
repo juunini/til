@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { TilNotFoundError } from './errors';
 
-const rootPath: string = __dirname.substring(0, __dirname.length - 4);
+const rootPath: string = './';
 const tilDirectory: string = 'til';
 
 function makePath(...paths: string[]): string {
