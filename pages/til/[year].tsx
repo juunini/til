@@ -3,18 +3,18 @@ import Link from 'next/link';
 
 import { dir } from 'lib/til';
 
-type PathsResult = {
+type Params = {
   params: {
     year: string;
   };
 };
 
-type PropsResult = {
+type Props = {
   year: string;
   months: Array<string>;
 };
 
-export default function Year({ year, months }: PropsResult): JSX.Element {
+export default function Year({ year, months }: Props): JSX.Element {
   return (
     <>
       {
@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({
   params: { year },
-}: PathsResult) => {
+}: Params) => {
   const months: string[] = dir(year);
 
   return {
