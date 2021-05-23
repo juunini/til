@@ -18,13 +18,23 @@ type Props = {
 
 export default function Month({ year, month, days }: Props): JSX.Element {
   return (
-    <>
-      {
-        days.map((day: string): JSX.Element => (
-          <Link key={day} href={internalURI(year, month, day)}>{day}</Link>
-        ))
-      }
-    </>
+    <main>
+      <h1>
+        <Link href={internalURI(year)}>{year}</Link>
+        년
+        {` ${month}월`}
+      </h1>
+
+      <ul>
+        {
+          days.map((day: string): JSX.Element => (
+            <li key={day}>
+              <Link href={internalURI(year, month, day)}>{`${day}일`}</Link>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
   );
 }
 
