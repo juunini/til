@@ -14,3 +14,29 @@ a {
 * {
   box-sizing: border-box;
 }
+
+main {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+@media (max-width: 767px) {
+  main {
+    padding: 15px;
+  }
+}
+
+main a {
+  color: #0366d6;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+main li {
+  margin-bottom: 0.625rem;
+}
