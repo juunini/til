@@ -2,8 +2,9 @@
 import { AppProps } from 'next/app';
 
 import Head from 'layout/Head';
-import '../styles/globals.css';
 import Header from 'layout/Header';
+import Footer from 'layout/Footer';
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

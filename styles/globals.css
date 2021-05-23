@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-header .container, main {
+header .container, main, footer .container {
   box-sizing: border-box;
   min-width: 200px;
   max-width: 980px;
@@ -44,4 +44,23 @@ header a:hover, main a:hover {
 
 main li {
   margin-bottom: 0.625rem;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid #eaecef;
+}
+
+footer .container {
+  padding: 45px;
+}
+
+@media (max-width: 767px) {
+  footer .container {
+    padding: 15px;
+  }
+}
+
+footer img {
+  vertical-align: bottom;
 }
