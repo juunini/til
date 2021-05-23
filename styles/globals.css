@@ -15,25 +15,30 @@ a {
   box-sizing: border-box;
 }
 
-main {
+header .container, main {
   box-sizing: border-box;
   min-width: 200px;
   max-width: 980px;
   margin: 0 auto;
-  padding: 45px;
+  padding: 0 45px;
 }
 
 @media (max-width: 767px) {
-  main {
-    padding: 15px;
+  header .container, main {
+    padding: 0 15px;
   }
 }
 
-main a {
+header {
+  text-align: center;
+  border-bottom: 1px solid #eaecef;
+}
+
+header a, main a {
   color: #0366d6;
 }
 
-main a:hover {
+header a:hover, main a:hover {
   text-decoration: underline;
 }
 
