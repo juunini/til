@@ -18,7 +18,7 @@ type Props = {
 
 export default function Month({ year, month, days }: Props): JSX.Element {
   return (
-    <main>
+    <>
       <h1>
         <Link href={internalURI(year)}>{year}</Link>
         년
@@ -34,7 +34,7 @@ export default function Month({ year, month, days }: Props): JSX.Element {
           ))
         }
       </ul>
-    </main>
+    </>
   );
 }
 

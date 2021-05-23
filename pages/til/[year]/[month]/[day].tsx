@@ -29,15 +29,13 @@ export default function Day({
         <meta name="description" content={`${year}년 ${month}월 ${day}일`} />
       </Head>
 
-      <main>
-        <h1>
-          <Link href={internalURI(year)}>{year}</Link>
-          {'년 '}
-          <Link href={internalURI(year, month)}>{month}</Link>
-          {'월 '}
-          {`${day}일`}
-        </h1>
-      </main>
+      <h1>
+        <Link href={internalURI(year)}>{year}</Link>
+        {'년 '}
+        <Link href={internalURI(year, month)}>{month}</Link>
+        {'월 '}
+        {`${day}일`}
+      </h1>
 
       <Markdown>{content}</Markdown>
     </>

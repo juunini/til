@@ -16,7 +16,7 @@ type Props = {
 
 export default function Year({ year, months }: Props): JSX.Element {
   return (
-    <main>
+    <>
       <h1>{`${year}년`}</h1>
 
       <ul>
@@ -28,7 +28,7 @@ export default function Year({ year, months }: Props): JSX.Element {
           ))
         }
       </ul>
-    </main>
+    </>
   );
 }
 
