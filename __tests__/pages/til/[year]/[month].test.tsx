@@ -12,7 +12,7 @@ describe('[month]', () => {
     it('renders days link', () => {
       render(<Month year={given.year} month={given.month} days={[given.day]} />);
 
-      screen.getByText(given.day);
+      screen.getByText(`${given.day}일`);
     });
   });
 

@@ -11,7 +11,7 @@ describe('[year]', () => {
     it('renders months link', () => {
       render(<Year year={given.year} months={[given.month]} />);
 
-      screen.getByText(given.month);
+      screen.getByText(`${given.month}월`);
     });
   });
 

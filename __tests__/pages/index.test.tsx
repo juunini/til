@@ -11,7 +11,7 @@ describe('index', () => {
     it('renders next index page', () => {
       render(<Home years={[given.year]} />);
 
-      screen.getByText(given.year);
+      screen.getByText(`${given.year}년`);
     });
   });
 

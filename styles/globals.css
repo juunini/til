@@ -14,3 +14,53 @@ a {
 * {
   box-sizing: border-box;
 }
+
+header .container, main, footer .container {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+@media (max-width: 767px) {
+  header .container, main {
+    padding: 0 15px;
+  }
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid #eaecef;
+}
+
+header a, main a {
+  color: #0366d6;
+}
+
+header a:hover, main a:hover {
+  text-decoration: underline;
+}
+
+main li {
+  margin-bottom: 0.625rem;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid #eaecef;
+}
+
+footer .container {
+  padding: 45px;
+}
+
+@media (max-width: 767px) {
+  footer .container {
+    padding: 15px;
+  }
+}
+
+footer img {
+  vertical-align: bottom;
+}

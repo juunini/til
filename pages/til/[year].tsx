@@ -16,13 +16,19 @@ type Props = {
 
 export default function Year({ year, months }: Props): JSX.Element {
   return (
-    <>
-      {
-        months.map((month: string) => (
-          <Link key={month} href={internalURI(year, month)}>{month}</Link>
-        ))
-      }
-    </>
+    <main>
+      <h1>{`${year}년`}</h1>
+
+      <ul>
+        {
+          months.map((month: string) => (
+            <li key={month}>
+              <Link href={internalURI(year, month)}>{`${month}월`}</Link>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
   );
 }
 
