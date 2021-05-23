@@ -19,15 +19,17 @@ export default function Year({ year, months }: Props): JSX.Element {
     <>
       <h1>{`${year}년`}</h1>
 
-      <ul>
-        {
-          months.map((month: string) => (
-            <li key={month}>
-              <Link href={internalURI(year, month)}>{`${month}월`}</Link>
-            </li>
-          ))
-        }
-      </ul>
+      <div className="markdown-body">
+        <ul>
+          {
+            months.map((month: string) => (
+              <li key={month}>
+                <Link href={internalURI(year, month)}>{`${month}월`}</Link>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </>
   );
 }

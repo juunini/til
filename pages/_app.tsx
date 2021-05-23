@@ -4,7 +4,8 @@ import { AppProps } from 'next/app';
 import Head from 'layout/Head';
 import Header from 'layout/Header';
 import Footer from 'layout/Footer';
-import '../styles/globals.css';
+import 'styles/globals.css';
+import 'styles/github-markdown.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

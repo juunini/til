@@ -13,7 +13,6 @@ export default function Markdown({ children }: Props) {
   return (
     <>
       <Head>
-        <link rel="stylesheet" href="/github-markdown.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/go.min.js" />
