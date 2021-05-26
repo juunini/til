@@ -17,5 +17,5 @@ module.exports = {
     new StaticSiteGeneratorPlugin({
       crawl: true
     })
-  ]
+  ],
 };
