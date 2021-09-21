@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import TilLinks from 'lib/components/TilLinks';
 import { Props } from 'lib/components/TilLink';
@@ -24,6 +25,10 @@ const TilLinkProps = (year: string, month: string): Props => ({
 export default function Year({ year, months }: PageProps): JSX.Element {
   return (
     <>
+      <Head>
+        <title>{`juunini's til - ${year}년`}</title>
+      </Head>
+
       <h1>{`${year}년`}</h1>
 
       <div className="markdown-body">

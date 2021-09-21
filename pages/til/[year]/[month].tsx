@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import TilLinks from 'lib/components/TilLinks';
 import TilLink, { Props } from 'lib/components/TilLink';
@@ -26,6 +27,10 @@ const TilLinkProps = (year: string, month: string, day: string): Props => ({
 export default function Month({ year, month, days }: PageProps): JSX.Element {
   return (
     <>
+      <Head>
+        <title>{`juunini's til - ${year}년 ${month}월`}</title>
+      </Head>
+
       <h1>
         <TilLink href={year} contents={year} postfix="년" />
         {` ${month}월`}
@@ -44,8 +49,7 @@ const getMonths = (year: string): Array<StaticProps> => ls(year).map(
 const removeExtension = (filename: string): string => filename.replace(/[^0-9]/gi, '');
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const years: Array<string> = ls();
-  const paths: Array<StaticProps> = years.flatMap(getMonths);
+  const paths: Array<StaticProps> = ls().flatMap(getMonths);
 
   return {
     paths,
