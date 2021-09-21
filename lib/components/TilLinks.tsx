@@ -8,7 +8,7 @@ export default function TilLinks({ props }: Props): JSX.Element {
   return (
     <ul>
       {
-        props.map(({ href, contents, postfix }) => (
+        props.map(({ href, contents, postfix }: TilLinkProps) => (
           <li key={href}>
             <TilLink
               href={href}
