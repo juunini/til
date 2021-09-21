@@ -1,20 +1,17 @@
 import Link from 'next/link';
 
-import constants from 'lib/constants';
+const TIL_ROOT = '/til/';
 
-interface Params {
-  year: number;
-  month: number;
-  day: number;
-  postFix: string;
+interface Props {
+  href: string;
+  contents: string;
+  postfix?: string;
 }
 
 export default function TilLink({
-  year, month = 0, day = 0, postFix = '',
-}: Params): JSX.Element {
-  const paths = [year, month, day].filter((target) => target !== 0);
-  const href = `${constants.tilRoot}/${paths.join('/')}`;
-  const contents = paths[paths.length - 1] + postFix;
-
-  return <Link href={href}>{contents}</Link>;
+  href,
+  contents,
+  postfix = '',
+}: Props): JSX.Element {
+  return <Link href={TIL_ROOT + href}>{contents + postfix}</Link>;
 }
