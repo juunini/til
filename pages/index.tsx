@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
-import { dir, internalURI } from 'lib/til';
+import { climbingOrder, dir, internalURI } from 'lib/til';
 
 export default function Home({ years }: { years: string[] }) {
   return (
@@ -19,6 +19,6 @@ export default function Home({ years }: { years: string[] }) {
 
 export const getStaticProps: GetStaticProps = async () => ({
   props: {
-    years: dir(),
+    years: climbingOrder(dir()),
   },
 });

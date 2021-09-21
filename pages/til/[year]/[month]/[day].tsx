@@ -2,7 +2,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { dir, contents, internalURI } from 'lib/til';
+import {
+  dir, contents, internalURI, climbingOrder,
+} from 'lib/til';
 import Markdown from 'lib/markdown';
 
 type Params = {
@@ -43,13 +45,13 @@ export default function Day({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const years: string[] = dir();
+  const years: string[] = climbingOrder(dir());
 
   const paths = years.reduce((acc, year: string) => {
-    const months: string[] = dir(year);
+    const months: string[] = climbingOrder(dir(year));
 
     const currentMonthParams = months.reduce((monthAcc, month: string) => {
-      const days: string[] = dir(year, month);
+      const days: string[] = climbingOrder(dir(year, month));
 
       const currentDayParams = days.map((day: string) => ({ params: { year, month, day: day.replace('.md', '') } }));
 

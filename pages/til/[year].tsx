@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 
-import { dir, internalURI } from 'lib/til';
+import { climbingOrder, dir, internalURI } from 'lib/til';
 
 type Params = {
   params: {
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({
   params: { year },
 }: Params) => {
-  const months: string[] = dir(year);
+  const months: string[] = climbingOrder(dir(year));
 
   return {
     props: {
