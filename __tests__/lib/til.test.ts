@@ -52,8 +52,6 @@ describe('til', () => {
     it('should sort by integer value', () => {
       const sortedArray = climbingOrder(['2020.md', '2019.md', '2009.md', '2010.md', '2001.md', '1999.md']);
 
-      console.log(sortedArray);
-
       expect(sortedArray).toEqual(['1999.md', '2001.md', '2009.md', '2010.md', '2019.md', '2020.md']);
     });
   });
