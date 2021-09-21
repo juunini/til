@@ -1,18 +1,20 @@
 import Link from 'next/link';
 
-import tilAddress from 'lib/utils/tilAddress';
-import withPostFix from 'lib/utils/withPostFix';
+import constants from 'lib/constants';
 
 interface Params {
-  paths: Array<string>;
-  name: string;
+  year: number;
+  month: number;
+  day: number;
   postFix: string;
 }
 
-export default function TilLink({ paths, name, postFix = '' }: Params): JSX.Element {
-  return (
-    <Link href={tilAddress(...paths)}>
-      {withPostFix(name, postFix)}
-    </Link>
-  );
+export default function TilLink({
+  year, month = 0, day = 0, postFix = '',
+}: Params): JSX.Element {
+  const paths = [year, month, day].filter((target) => target !== 0);
+  const href = `${constants.tilRoot}/${paths.join('/')}`;
+  const contents = paths[paths.length - 1] + postFix;
+
+  return <Link href={href}>{contents}</Link>;
 }
