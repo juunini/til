@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const TIL_ROOT = '/til/';
 
-interface Props {
+export interface Props {
   href: string;
   contents: string;
   postfix?: string;
