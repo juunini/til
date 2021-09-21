@@ -1,56 +1,51 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
 
-import { climbingOrder, dir, internalURI } from 'lib/til';
+import TilLinks from 'lib/components/TilLinks';
+import TilLink, { Props } from 'lib/components/TilLink';
+import ls from 'lib/til/ls';
 
-type Params = {
+interface StaticProps {
   params: {
     year: string;
     month: string;
   };
-};
+}
 
-type Props = {
+interface PageProps {
   year: string;
   month: string;
   days: string[];
-};
+}
 
-export default function Month({ year, month, days }: Props): JSX.Element {
+const TilLinkProps = (year: string, month: string, day: string): Props => ({
+  href: `${year}/${month}/${day}`,
+  contents: day,
+  postfix: '일',
+});
+
+export default function Month({ year, month, days }: PageProps): JSX.Element {
   return (
     <>
       <h1>
-        <Link href={internalURI(year)}>{year}</Link>
-        년
+        <TilLink href={year} contents={year} postfix="년" />
         {` ${month}월`}
       </h1>
 
       <div className="markdown-body">
-        <ul>
-          {
-            days.map((day: string): JSX.Element => (
-              <li key={day}>
-                <Link href={internalURI(year, month, day)}>{`${day}일`}</Link>
-              </li>
-            ))
-          }
-        </ul>
+        <TilLinks props={days.map((day) => TilLinkProps(year, month, day))} />
       </div>
     </>
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const years: string[] = dir();
+const getMonths = (year: string): Array<StaticProps> => ls(year).map(
+  (month) => ({ params: { year, month } }),
+);
+const removeExtension = (filename: string): string => filename.replace(/[^0-9]/gi, '');
 
-  const paths = years.reduce((acc, year: string) => {
-    const months: string[] = climbingOrder(dir(year));
-    const currentParams = months.map((month: string) => ({ params: { year, month } }));
-    return [
-      ...acc,
-      ...currentParams,
-    ];
-  }, []);
+export const getStaticPaths: GetStaticPaths = async () => {
+  const years: Array<string> = ls();
+  const paths: Array<StaticProps> = years.flatMap(getMonths);
 
   return {
     paths,
@@ -58,14 +53,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { year, month } }: Params) => {
-  const days: string[] = climbingOrder(dir(year, month));
+export const getStaticProps: GetStaticProps = async ({
+  params: { year, month },
+}: StaticProps) => {
+  const days: Array<string> = ls(year, month).map(removeExtension);
 
   return {
     props: {
       year,
       month,
-      days: days.map((day: string): string => day.replace('.md', '')),
+      days,
     },
   };
 };
