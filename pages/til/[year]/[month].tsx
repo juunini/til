@@ -4,18 +4,18 @@ import TilLinks from 'lib/components/TilLinks';
 import TilLink, { Props } from 'lib/components/TilLink';
 import ls from 'lib/til/ls';
 
-type StaticProps = {
+interface StaticProps {
   params: {
     year: string;
     month: string;
   };
-};
+}
 
-type PageProps = {
+interface PageProps {
   year: string;
   month: string;
   days: string[];
-};
+}
 
 const TilLinkProps = (year: string, month: string, day: string): Props => ({
   href: `${year}/${month}/${day}`,
