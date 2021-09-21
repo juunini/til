@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { isEmpty } from 'lodash';
 
 import { TilNotFoundError } from './errors';
 
@@ -10,7 +11,7 @@ function makePath(...paths: string[]): string {
   return path.resolve(
     rootPath,
     tilDirectory,
-    ...paths.filter((value: string): boolean => value !== undefined && value !== ''),
+    ...paths.filter((value) => !isEmpty(value)),
   );
 }
 
