@@ -5,21 +5,23 @@ import Home, { getStaticProps } from 'pages/index';
 import given from 'given2';
 
 describe('index', () => {
-  given('year', () => '2021');
-
   describe('Home', () => {
-    it('renders next index page', () => {
-      render(<Home years={[given.year]} />);
+    given('years', () => ['2021', '2022']);
 
-      screen.getByText(`${given.year}년`);
+    it('renders year list', () => {
+      render(<Home years={given.years} />);
+
+      given.years.forEach((year: string) => screen.getByText(new RegExp(year)));
     });
   });
 
   describe('getStaticProps', () => {
     it('returns contains years object', async () => {
-      const { props: { years } } = await getStaticProps(null);
+      const { props: { years } } = await getStaticProps(null) as {
+        props: { years: Array<string> };
+      };
 
-      expect(years.includes(given.year)).toBeTruthy();
+      expect(years).toContain('2021');
     });
   });
 });
