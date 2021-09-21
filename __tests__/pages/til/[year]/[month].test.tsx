@@ -6,13 +6,13 @@ import Month, { getStaticPaths, getStaticProps } from 'pages/til/[year]/[month]'
 describe('[month]', () => {
   given('year', () => '2021');
   given('month', () => '5');
-  given('day', () => '21');
+  given('days', () => ['21']);
 
   describe('Month', () => {
     it('renders days link', () => {
-      render(<Month year={given.year} month={given.month} days={[given.day]} />);
+      render(<Month year={given.year} month={given.month} days={given.days} />);
 
-      screen.getByText(`${given.day}일`);
+      screen.getByText(`${given.days[0]}일`);
     });
   });
 
@@ -29,7 +29,7 @@ describe('[month]', () => {
     given('paths', () => ({ params: { year: given.year, month: given.month } }));
 
     it('returns days what received year and month having', async () => {
-      const { props } = await getStaticProps(given.paths);
+      const { props } = await getStaticProps(given.paths) as any;
 
       expect(props.year).toBe(given.year);
       expect(props.month).toBe(given.month);
