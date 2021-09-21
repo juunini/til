@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { isEmpty } from 'lodash';
+import { isEmpty, toInteger } from 'lodash';
 
 import { TilNotFoundError } from './errors';
 
@@ -15,6 +15,10 @@ function makePath(...paths: string[]): string {
   );
 }
 
+function stringToInteger(target: string): number {
+  return toInteger(target.replace(/[^0-9]/g, ''));
+}
+
 export function internalURI(...paths: string[]): string {
   return `/${tilDirectory}/${paths.join('/')}`;
 }
@@ -23,6 +27,10 @@ export function dir(...paths: string[]): string[] {
   return fs.readdirSync(
     makePath(...paths),
   );
+}
+
+export function climbingOrder(target: string[]): string[] {
+  return target.sort((a, b) => stringToInteger(a) - stringToInteger(b));
 }
 
 export function contents(...paths: string[]): string {
