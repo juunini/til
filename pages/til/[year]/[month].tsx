@@ -44,7 +44,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const years: string[] = dir();
 
   const paths = years.reduce((acc, year: string) => {
-    const months: string[] = dir(year);
+    const months: string[] = climbingOrder(dir(year));
     const currentParams = months.map((month: string) => ({ params: { year, month } }));
     return [
       ...acc,
