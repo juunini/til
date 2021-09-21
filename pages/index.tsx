@@ -1,24 +1,21 @@
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 
-import { climbingOrder, dir, internalURI } from 'lib/til';
+import ls from 'lib/til/ls';
+import TilLinks from 'lib/components/TilLinks';
+import { Props } from 'lib/components/TilLink';
 
-export default function Home({ years }: { years: string[] }) {
-  return (
-    <ul>
-      {
-        years.map((year: string): JSX.Element => (
-          <li key={year}>
-            <Link href={internalURI(year)}>{`${year}년`}</Link>
-          </li>
-        ))
-      }
-    </ul>
-  );
+const TilLinkProps = (year: string): Props => ({
+  href: year,
+  contents: year,
+  postfix: '년',
+});
+
+export default function Home({ years }: { years: Array<string> }) {
+  return <TilLinks props={years.map(TilLinkProps)} />;
 }
 
 export const getStaticProps: GetStaticProps = async () => ({
   props: {
-    years: climbingOrder(dir()),
+    years: ls(),
   },
 });
