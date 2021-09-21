@@ -1,42 +1,41 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
 
-import { climbingOrder, dir, internalURI } from 'lib/til';
+import TilLinks from 'lib/components/TilLinks';
+import { Props } from 'lib/components/TilLink';
+import ls from 'lib/til/ls';
 
-type Params = {
+interface StaticProps {
   params: {
     year: string;
   };
-};
+}
 
-type Props = {
+interface PageProps {
   year: string;
   months: Array<string>;
-};
+}
 
-export default function Year({ year, months }: Props): JSX.Element {
+const TilLinkProps = (year: string, month: string): Props => ({
+  href: `${year}/${month}`,
+  contents: month,
+  postfix: '월',
+});
+
+export default function Year({ year, months }: PageProps): JSX.Element {
   return (
     <>
       <h1>{`${year}년`}</h1>
 
       <div className="markdown-body">
-        <ul>
-          {
-            months.map((month: string) => (
-              <li key={month}>
-                <Link href={internalURI(year, month)}>{`${month}월`}</Link>
-              </li>
-            ))
-          }
-        </ul>
+        <TilLinks props={months.map((month) => TilLinkProps(year, month))} />
       </div>
     </>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const years: string[] = dir();
-  const paths = years.map((year: string) => ({
+  const years: Array<string> = ls();
+  const paths = years.map((year) => ({
     params: { year },
   }));
 
@@ -48,8 +47,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({
   params: { year },
-}: Params) => {
-  const months: string[] = climbingOrder(dir(year));
+}: StaticProps) => {
+  const months: Array<string> = ls(year);
 
   return {
     props: {

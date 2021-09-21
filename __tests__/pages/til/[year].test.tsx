@@ -5,13 +5,13 @@ import Year, { getStaticPaths, getStaticProps } from 'pages/til/[year]';
 
 describe('[year]', () => {
   given('year', () => '2021');
-  given('month', () => '5');
+  given('months', () => ['8', '9']);
 
   describe('Year', () => {
     it('renders months link', () => {
-      render(<Year year={given.year} months={[given.month]} />);
+      render(<Year year={given.year} months={given.months} />);
 
-      screen.getByText(`${given.month}월`);
+      given.months.map((month: string) => screen.getByText(`${month}월`));
     });
   });
 
@@ -28,7 +28,7 @@ describe('[year]', () => {
     given('paths', () => ({ params: { year: given.year } }));
 
     it('returns months what received year having', async () => {
-      const { props } = await getStaticProps(given.paths);
+      const { props } = await getStaticProps(given.paths) as any;
 
       expect(props.year).toBe(given.year);
       expect(props).toHaveProperty('months');
