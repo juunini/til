@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@babel/plugin-syntax-jsx", "virtual:bb2d8f3d188ec3a69ad8fd9a0daf628c87c2ff2f5a5db1edcef6d62e0441e782d84ad7f1c95e59bcd316d1b5706ead6b900a68114a0e35a1b9b0e39c68201371#npm:7.12.13"],
+            ["@babel/runtime", "npm:7.15.4"],
             ["@testing-library/jest-dom", "npm:5.12.0"],
             ["@testing-library/react", "virtual:bb2d8f3d188ec3a69ad8fd9a0daf628c87c2ff2f5a5db1edcef6d62e0441e782d84ad7f1c95e59bcd316d1b5706ead6b900a68114a0e35a1b9b0e39c68201371#npm:11.2.7"],
             ["@types/jest", "npm:26.0.23"],
@@ -808,6 +809,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.14.0-fba2a32266-257dc25943.zip/node_modules/@babel/runtime/",
           "packageDependencies": [
             ["@babel/runtime", "npm:7.14.0"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:7.15.4", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.15.4-52ce5bf6ea-c408254304.zip/node_modules/@babel/runtime/",
+          "packageDependencies": [
+            ["@babel/runtime", "npm:7.15.4"],
             ["regenerator-runtime", "npm:0.13.7"]
           ],
           "linkType": "HARD",
@@ -10681,6 +10690,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["til", "workspace:."],
             ["@babel/plugin-syntax-jsx", "virtual:bb2d8f3d188ec3a69ad8fd9a0daf628c87c2ff2f5a5db1edcef6d62e0441e782d84ad7f1c95e59bcd316d1b5706ead6b900a68114a0e35a1b9b0e39c68201371#npm:7.12.13"],
+            ["@babel/runtime", "npm:7.15.4"],
             ["@testing-library/jest-dom", "npm:5.12.0"],
             ["@testing-library/react", "virtual:bb2d8f3d188ec3a69ad8fd9a0daf628c87c2ff2f5a5db1edcef6d62e0441e782d84ad7f1c95e59bcd316d1b5706ead6b900a68114a0e35a1b9b0e39c68201371#npm:11.2.7"],
             ["@types/jest", "npm:26.0.23"],
