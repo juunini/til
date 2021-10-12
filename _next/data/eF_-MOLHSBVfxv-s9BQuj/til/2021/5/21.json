@@ -1,0 +1,1 @@
+{"pageProps":{"year":"2021","month":"5","day":"21","content":"## 한 일\n\n- til 페이지 제작을 위해 Next.js 문서 읽기\n\n## 알게된 것\n\n- Next.js\n  - getStaticPaths\n  - getStaticProps\n  - dynamic route\n"},"__N_SSG":true}
