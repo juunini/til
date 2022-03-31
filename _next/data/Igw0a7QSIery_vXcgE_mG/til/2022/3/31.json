@@ -1,0 +1,1 @@
+{"pageProps":{"year":"2022","month":"3","day":"31","content":"## 한 일\n\n- 개발중인 서비스의 테스트용 서버를 개설해줌\n- 윈도우에서 mediasoup 설치 이슈 해결해줌\n- 불필요한 ec2 정리\n- 회사 스터디 추진 중\n- 배포 해결해줌\n  - 그와중에 짜증냄\n\n## 알게된 것\n\n- mediasoup 설치하는데 python3과 python3-pip가 필요하다\n- mediasoup 이랑 nginx를 어떻게 해야 같이 쓸 수 있는지 아직도 잘 모르고 있다는 것\n\n## 느낀 점\n\n- 내가 짜증내면 안되는데... 내가 리더인데...\n"},"__N_SSG":true}
